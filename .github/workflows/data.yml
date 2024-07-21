@@ -7,17 +7,36 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
+
+    - name: Check commit message for #newdata tag
+      id: check-message
+      run: |
+        if git log -1 --pretty=%B | grep -q "#newdata"; then
+          echo "Tag #newdata found in commit message, proceeding..."
+          echo "RUN_SCRIPT=true" >> $GITHUB_ENV
+        else
+          echo "Tag #newdata not found in commit message, skipping script execution."
+          echo "RUN_SCRIPT=false" >> $GITHUB_ENV
+          exit 0
+
     - name: Set up Python
+      if: env.RUN_SCRIPT == 'true'
       uses: actions/setup-python@v2
       with:
         python-version: '3.8'
+
     - name: Install dependencies
+      if: env.RUN_SCRIPT == 'true'
       run: |
         python -m pip install --upgrade pip
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+
     - name: Run script
+      if: env.RUN_SCRIPT == 'true'
       run: python build_data.py
+
     - name: Commit and push if changes to data.json
+      if: env.RUN_SCRIPT == 'true'
       run: |
         git config --global user.email "action@github.com"
         git config --global user.name "GitHub Action"
