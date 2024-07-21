@@ -8,17 +8,17 @@ jobs:
     steps:
     - uses: actions/checkout@v2
 
-  - name: Check commit message for #newdata tag
-    id: check-message
-    run: |
-      if git log -1 --pretty=%B | grep -q "#newdata"; then
-        echo "Tag #newdata found in commit message, proceeding..."
-        echo "RUN_SCRIPT=true" >> $GITHUB_ENV
-      else
-        echo "Tag #newdata not found in commit message, skipping script execution."
-        echo "RUN_SCRIPT=false" >> $GITHUB_ENV
-        exit 0
-      fi
+    - name: Check commit message for #newdata tag
+      id: check-message
+      run: |
+        if git log -1 --pretty=%B | grep -q "#newdata"; then
+          echo "Tag #newdata found in commit message, proceeding..."
+          echo "RUN_SCRIPT=true" >> $GITHUB_ENV
+        else
+          echo "Tag #newdata not found in commit message, skipping script execution."
+          echo "RUN_SCRIPT=false" >> $GITHUB_ENV
+          exit 0
+        fi
 
     - name: Set up Python
       if: env.RUN_SCRIPT == 'true'
