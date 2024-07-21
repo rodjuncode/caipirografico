@@ -1,28 +1,45 @@
 import json
+import os
 from datetime import datetime
 
-# Function to append timestamp to JSON file
-def append_timestamp(file_path='data.json'):
-    # Get current timestamp
-    current_timestamp = datetime.now().isoformat()
-    
+def create_json_data(folder_path='data/covers', file_path='data/data.json'):
+    # Initialize data list
+    data = []
+
+    # Try to load existing data
     try:
-        # Read existing data
         with open(file_path, 'r') as file:
             data = json.load(file)
-    except FileNotFoundError:
-        # If file does not exist, start a new list
-        data = []
-    except json.JSONDecodeError:
-        # If file is empty or not valid JSON, start a new list
-        data = []
+    except (FileNotFoundError, json.JSONDecodeError):
+        pass  # If no file or invalid JSON, start with an empty list
 
-    # Append the current timestamp
-    data.append({'timestamp': current_timestamp})
-    
+    # List of existing covers to avoid duplicates
+    existing_covers = [entry['cover'] for entry in data if 'cover' in entry]
+
+    # List image files in the folder
+    for file_name in os.listdir(folder_path):
+        if file_name.endswith(('.png', '.jpg', '.jpeg')) and file_name not in existing_covers:
+            # Parse file name
+            artist, rest = file_name.split('-', 1)
+            title, release = rest.rsplit('(', 1)
+            release = release.rstrip(').jpg').rstrip(').png').rstrip(').jpeg')  # Remove file extension and closing parenthesis
+
+            # Trim content
+            artist = artist.strip()
+            title = title.strip()
+            release = release.strip()
+
+            # Append new entry
+            data.append({
+                'title': title,
+                'artist': artist,
+                'release': release,
+                'cover': file_name
+            })
+
     # Write the updated data back to the file
     with open(file_path, 'w') as file:
         json.dump(data, file, indent=4)
 
 # Call the function
-append_timestamp()
+create_json_data()
