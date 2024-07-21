@@ -9,10 +9,11 @@
         margin: 0;
       }
       #colorGrid {
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(200px, 0));
+        display: flex;
+        flex-wrap: wrap;
       }
       .color {
+        flex: 0 0 auto;
         width: 200px;
         height: 200px;
       }
