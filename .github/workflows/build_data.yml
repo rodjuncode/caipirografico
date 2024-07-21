@@ -1,4 +1,4 @@
-name: data
+name: build data
 
 on: [push]
 
