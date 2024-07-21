@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Color Palette Visualization</title>
+    <style>
+      * {
+        margin: 0;
+      }
+      #colorGrid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(200px, 0));
+      }
+      .color {
+        width: 200px;
+        height: 200px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="colorGrid"></div>
+    <script>
+      // Function to convert hex color to HSL
+      function rgbToHSL(rgb) {
+        let [r, g, b] = rgb;
+        // Convert RGB to the range 0-1
+        r /= 255;
+        g /= 255;
+        b /= 255;
+
+        const max = Math.max(r, g, b);
+        const min = Math.min(r, g, b);
+        let h,
+          s,
+          l = (max + min) / 2;
+
+        if (max === min) {
+          h = s = 0; // achromatic
+        } else {
+          const d = max - min;
+          s = l > 0.5 ? d / (2 - max - min) : d / (max + min);
+          switch (max) {
+            case r:
+              h = (g - b) / d + (g < b ? 6 : 0);
+              break;
+            case g:
+              h = (b - r) / d + 2;
+              break;
+            case b:
+              h = (r - g) / d + 4;
+              break;
+          }
+          h /= 6;
+        }
+        return { h: h * 360, s: s * 100, l: l * 100 }; // Convert to percentages
+      }
+
+      // Function to sort colors by hue
+      function sortColorsByHue(colors) {
+        return colors.sort((a, b) => {
+          const hslA = rgbToHSL(a);
+          const hslB = rgbToHSL(b);
+          return hslA.h - hslB.h;
+        });
+      }
+
+      async function fetchAllColors() {
+        try {
+          const response = await fetch("data/data.json");
+          if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+          }
+          const data = await response.json();
+
+          // Extract color strings from all entries
+          const colors = data.reduce(
+            (acc, item) => acc.concat(item.palette),
+            []
+          );
+          return colors;
+        } catch (error) {
+          console.error("Could not fetch colors:", error);
+          return []; // Return an empty array in case of error
+        }
+      }
+
+      // Load and process the JSON data
+      //   fetch("data/data.json")
+      //     .then((response) => response.json())
+      //     .then((data) => {
+      //       const colorGrid = document.getElementById("colorGrid");
+      //       data.forEach((entry) => {
+      //         const palette = entry.palette;
+      //         const sortedColors = sortColorsByHue(palette);
+      //         const paletteDiv = document.createElement("div");
+      //         paletteDiv.className = "palette";
+      //         sortedColors.forEach((color) => {
+      //           const rgbColor = `rgb(${color[0]}, ${color[1]}, ${color[2]})`;
+      //           const colorDiv = document.createElement("div");
+      //           colorDiv.className = "color";
+      //           colorDiv.style.backgroundColor = rgbColor;
+      //           paletteDiv.appendChild(colorDiv);
+      //         });
+      //         colorGrid.appendChild(paletteDiv);
+      //       });
+      //     });
+
+      fetchAllColors().then((colors) => {
+        const colorGrid = document.getElementById("colorGrid");
+        const sortedColors = sortColorsByHue(colors);
+        // sortedColors = colors;
+        sortedColors.forEach((color) => {
+          const rgbColor = `rgb(${color[0]}, ${color[1]}, ${color[2]})`;
+          const colorDiv = document.createElement("div");
+          colorDiv.className = "color";
+          colorDiv.style.backgroundColor = rgbColor;
+          colorGrid.appendChild(colorDiv);
+        });
+      });
+    </script>
+  </body>
+</html>
