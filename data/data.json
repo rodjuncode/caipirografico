@@ -316,5 +316,61 @@
                 94
             ]
         ]
+    },
+    {
+        "title": " Moreninha Linda ",
+        "artist": "Chit\u00e3ozinho e Choror\u00f3 ",
+        "release": "1969",
+        "cover": "Chit\u00e3ozinho e Choror\u00f3 - Moreninha Linda (1969).jpg",
+        "palette": [
+            [
+                69,
+                67,
+                63
+            ],
+            [
+                208,
+                165,
+                151
+            ],
+            [
+                140,
+                180,
+                169
+            ],
+            [
+                93,
+                142,
+                174
+            ]
+        ]
+    },
+    {
+        "title": " Violeiro ",
+        "artist": "Rolando Boldrin ",
+        "release": "1982",
+        "cover": "Rolando Boldrin - Violeiro (1982).jpeg",
+        "palette": [
+            [
+                224,
+                202,
+                163
+            ],
+            [
+                68,
+                47,
+                37
+            ],
+            [
+                181,
+                128,
+                65
+            ],
+            [
+                134,
+                80,
+                40
+            ]
+        ]
     }
 ]
