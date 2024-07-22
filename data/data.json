@@ -540,5 +540,33 @@
                 179
             ]
         ]
+    },
+    {
+        "title": " Eu me agarro na viola ",
+        "artist": "Inezita Barroso ",
+        "release": "1960",
+        "cover": "Inezita Barroso - Eu me agarro na viola (1960).jpg",
+        "palette": [
+            [
+                175,
+                75,
+                52
+            ],
+            [
+                196,
+                198,
+                185
+            ],
+            [
+                55,
+                22,
+                26
+            ],
+            [
+                155,
+                159,
+                165
+            ]
+        ]
     }
 ]
