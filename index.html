@@ -8,18 +8,32 @@
       * {
         margin: 0;
       }
+      body {
+        background: lightgray;
+      }
       #colorGrid {
         display: flex;
         flex-wrap: wrap;
       }
       .color {
         flex: 0 0 auto;
-        width: 80px;
-        height: 80px;
+        width: 60px;
+        height: 60px;
       }
+      #coverGrid {
+        display: flex;
+        flex-wrap: wrap;
+      }
+      #coverGrid img {
+        flex: 0 0 auto;
+        width: 120;
+        height: 120px;
+      }
+
     </style>
   </head>
   <body>
+    <div id="coverGrid"></div>
     <div id="colorGrid"></div>
     <script>
       // Function to convert hex color to HSL
@@ -87,25 +101,16 @@
       }
 
       // Load and process the JSON data
-      //   fetch("data/data.json")
-      //     .then((response) => response.json())
-      //     .then((data) => {
-      //       const colorGrid = document.getElementById("colorGrid");
-      //       data.forEach((entry) => {
-      //         const palette = entry.palette;
-      //         const sortedColors = sortColorsByHue(palette);
-      //         const paletteDiv = document.createElement("div");
-      //         paletteDiv.className = "palette";
-      //         sortedColors.forEach((color) => {
-      //           const rgbColor = `rgb(${color[0]}, ${color[1]}, ${color[2]})`;
-      //           const colorDiv = document.createElement("div");
-      //           colorDiv.className = "color";
-      //           colorDiv.style.backgroundColor = rgbColor;
-      //           paletteDiv.appendChild(colorDiv);
-      //         });
-      //         colorGrid.appendChild(paletteDiv);
-      //       });
-      //     });
+        fetch("data/data.json")
+          .then((response) => response.json())
+          .then((data) => {
+            const coverGrid = document.getElementById("coverGrid");
+            data.forEach((entry) => {
+              const cover = document.createElement("img");
+              cover.src = 'data/covers/' + entry.cover;
+              coverGrid.appendChild(cover);
+            });
+          });
 
       fetchAllColors().then((colors) => {
         const colorGrid = document.getElementById("colorGrid");
