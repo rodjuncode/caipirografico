@@ -30,7 +30,7 @@ def update_json_data():
         title, release = rest.rsplit('(', 1)
         release = release.rstrip(').jpg').rstrip(').png').rstrip(').jpeg')  # Remove file extension and closing parenthesis
         color_thief = ColorThief(cover_path)
-        palette = color_thief.get_palette(color_count=10)
+        palette = color_thief.get_palette(color_count=3, quality=1)
 
         # Create or update the entry
         new_entry = {
