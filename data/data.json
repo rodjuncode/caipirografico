@@ -428,5 +428,33 @@
                 33
             ]
         ]
+    },
+    {
+        "title": " No Ponteio da Viola ",
+        "artist": "Tonico e Tinoco ",
+        "release": "1973",
+        "cover": "Tonico e Tinoco - No Ponteio da Viola (1973).jpg",
+        "palette": [
+            [
+                93,
+                135,
+                157
+            ],
+            [
+                210,
+                172,
+                146
+            ],
+            [
+                51,
+                36,
+                31
+            ],
+            [
+                156,
+                199,
+                221
+            ]
+        ]
     }
 ]
