@@ -456,5 +456,33 @@
                 221
             ]
         ]
+    },
+    {
+        "title": " Solos de Viola Caipira ",
+        "artist": "Nestor da Viola ",
+        "release": "1977",
+        "cover": "Nestor da Viola - Solos de Viola Caipira (1977).jpg",
+        "palette": [
+            [
+                54,
+                83,
+                87
+            ],
+            [
+                176,
+                167,
+                164
+            ],
+            [
+                113,
+                183,
+                195
+            ],
+            [
+                99,
+                152,
+                181
+            ]
+        ]
     }
 ]
