@@ -372,5 +372,61 @@
                 40
             ]
         ]
+    },
+    {
+        "title": " Resposta do Jeca Tat\u00fa ",
+        "artist": "Rolando Boldrin ",
+        "release": "1989",
+        "cover": "Rolando Boldrin - Resposta do Jeca Tat\u00fa (1989).jpg",
+        "palette": [
+            [
+                9,
+                10,
+                10
+            ],
+            [
+                225,
+                201,
+                138
+            ],
+            [
+                99,
+                141,
+                151
+            ],
+            [
+                80,
+                119,
+                138
+            ]
+        ]
+    },
+    {
+        "title": " O Barco ",
+        "artist": "Abel e Caim ",
+        "release": "1975",
+        "cover": "Abel e Caim - O Barco (1975).jpg",
+        "palette": [
+            [
+                207,
+                124,
+                52
+            ],
+            [
+                51,
+                43,
+                36
+            ],
+            [
+                193,
+                183,
+                170
+            ],
+            [
+                189,
+                63,
+                33
+            ]
+        ]
     }
 ]
