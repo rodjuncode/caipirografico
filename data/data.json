@@ -512,5 +512,33 @@
                 195
             ]
         ]
+    },
+    {
+        "title": " Recordando Raul Torres ",
+        "artist": "Tonico e Tinoco ",
+        "release": "1970",
+        "cover": "Tonico e Tinoco - Recordando Raul Torres (1970).jpg",
+        "palette": [
+            [
+                99,
+                97,
+                92
+            ],
+            [
+                203,
+                197,
+                186
+            ],
+            [
+                163,
+                161,
+                177
+            ],
+            [
+                179,
+                181,
+                179
+            ]
+        ]
     }
 ]
