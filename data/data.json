@@ -596,5 +596,33 @@
                 138
             ]
         ]
+    },
+    {
+        "title": " Rio Abaixo ",
+        "artist": "Rolando Boldrin ",
+        "release": "1979",
+        "cover": "Rolando Boldrin - Rio Abaixo (1979).jpg",
+        "palette": [
+            [
+                113,
+                93,
+                88
+            ],
+            [
+                208,
+                203,
+                200
+            ],
+            [
+                191,
+                169,
+                155
+            ],
+            [
+                185,
+                176,
+                182
+            ]
+        ]
     }
 ]
