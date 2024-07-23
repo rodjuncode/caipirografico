@@ -568,5 +568,33 @@
                 165
             ]
         ]
+    },
+    {
+        "title": " Cavalo Zaino ",
+        "artist": "Torres e Flor\u00eancio ",
+        "release": "1959",
+        "cover": "Torres e Flor\u00eancio - Cavalo Zaino (1959).jpg",
+        "palette": [
+            [
+                65,
+                80,
+                67
+            ],
+            [
+                187,
+                161,
+                158
+            ],
+            [
+                151,
+                173,
+                176
+            ],
+            [
+                160,
+                159,
+                138
+            ]
+        ]
     }
 ]
